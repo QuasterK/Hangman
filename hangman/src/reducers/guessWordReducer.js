@@ -3,6 +3,7 @@ const initState = {
     word: 'HELLO WORLD',
     lettersToGuess: 0,
     remainLetters: null,
+    numberOfMistakes: 0,
 };
 
 const guessWordReducer = (state= initState, action) =>{
@@ -17,6 +18,12 @@ const guessWordReducer = (state= initState, action) =>{
         return{
             ...state,
             remainLetters: action.remain,
+        }
+    }
+    if(action.type === 'MISTAKE'){
+        return{
+            ...state,
+            numberOfMistakes: action.mistake,
         }
     }
     return state

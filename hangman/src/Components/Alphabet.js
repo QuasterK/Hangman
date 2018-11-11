@@ -32,8 +32,10 @@ class Alphabet extends Component {
             });
             this.props.remain_letters(remainLetters);
             this.props.count_letters(remainLetters.length);
+        }else{
+            //mistakes
+            this.props.mistake(this.props.numberOfMistakes + 1)
         }
-        console.log(this.props.numberOfLettersToGuess)
     };
 
     render() {
@@ -61,6 +63,7 @@ const mapStateToProps = (state) => {
         usedLetters: state.alphabet.usedLetters,
         remain: state.guessWord.remainLetters,
         numberOfLettersToGuess: state.guessWord.lettersToGuess,
+        numberOfMistakes: state.guessWord.numberOfMistakes,
 
     }
 };
@@ -78,6 +81,9 @@ const mapDispatchToState = dispatch => {
         },
         remain_letters: (remain) => {
             dispatch({type: "REMAIN_LETTERS", remain})
+        },
+        mistake: (mistake) => {
+            dispatch({type: "MISTAKE", mistake})
         },
     }
 };
