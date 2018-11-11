@@ -50,7 +50,8 @@ const initState = {
         {letter : 'Z',
             clicked: false},
 
-    ]
+    ],
+    usedLetters: [],
 };
 
 const alphabetReducer = (state= initState, action) =>{
@@ -61,6 +62,13 @@ const alphabetReducer = (state= initState, action) =>{
         return {
             ...state,
             letters: newLettersArray
+        }
+    }
+    if(action.type === 'USED_LETTER'){
+        let newUsedLettersArray = [...state.usedLetters, action.letter];
+        return {
+            ...state,
+            usedLetters: newUsedLettersArray,
         }
     }
     return state
