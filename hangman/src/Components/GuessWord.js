@@ -7,7 +7,7 @@ class GuessWord extends Component {
         let guess = guessedWord.map(letter => {
            if(this.props.usedLetters.includes(letter.toUpperCase())){
                return letter;
-           }else return '_ ';
+           }else return '_ '
         });
         return (
             <div className='alphabet-container'>
@@ -21,12 +21,15 @@ const mapStateToProps = (state) =>{
     return {
         guessWord: [...state.guessWord.word],
         usedLetters: state.alphabet.usedLetters,
+        guess: state.guessWord.lettersToGuess,
     }
 };
 
 const mapDispatchToState = dispatch =>{
     return {
-        deactivate_letter: (letter) => {dispatch({type: "CLICKED_LETTER", letter:letter})}
+        deactivate_letter: (letter) => {dispatch({type: "CLICKED_LETTER", letter:letter})},
+        count_letters: (count) => {dispatch({type: "COUNT_LETTERS", count})},
+
     }
 };
 export default connect(mapStateToProps, mapDispatchToState)(GuessWord);
