@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Alphabet from './Alphabet';
 
 class Home extends Component {
     constructor(props){
@@ -11,11 +11,11 @@ class Home extends Component {
 
     render() {
         let guessedWord = [...this.state.word];
-        console.log(guessedWord);
         let guess = guessedWord.map(letter => '_ ');
         return (
             <div className='home-container'>
                 {guess}
+                <Alphabet/>
             </div>
         );
     }
