@@ -13,13 +13,15 @@ class Home extends Component {
     };
 
     render() {
+        console.log(this.props.quote);
+        console.log(this.props.lettersToGuess)
         return (
             <div className='home-container'>
                 <div className='logo'>HA_GMA_</div>
 
                 {this.props.gameOver ?
                    <div>
-                       <div>GAME OVER</div>
+                       <div>{this.props.lettersToGuess === 0 ? "CONGRATULATION" : 'GAME OVER'}</div>
                        <div>{this.props.quote}</div>
                        <div>{this.props.author}</div>
                        <div onClick={this.handleNewGame}>PLAY AGAIN ? </div>
@@ -43,6 +45,7 @@ const mapStateToProps = state => {
         gameOver: state.gameOver.gameOver,
         quote: state.guessWord.word,
         author: state.guessWord.author,
+        lettersToGuess: state.guessWord.lettersToGuess,
     }
 };
 

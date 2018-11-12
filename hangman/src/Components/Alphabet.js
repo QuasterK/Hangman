@@ -50,6 +50,11 @@ class Alphabet extends Component {
         if(this.props.numberOfMistakes === 4){
             this.props.game_over(true);
         }
+
+        //win game
+        if(this.props.lettersToGuess === 0){
+            this.props.game_over(true)
+        }
     };
 
     render() {
@@ -79,6 +84,7 @@ const mapStateToProps = (state) => {
         numberOfLettersToGuess: state.guessWord.lettersToGuess,
         numberOfMistakes: state.guessWord.numberOfMistakes,
         startGame: state.start.start,
+        lettersToGuess: state.guessWord.lettersToGuess
 
     }
 };
