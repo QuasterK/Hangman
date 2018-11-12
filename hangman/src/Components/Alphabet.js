@@ -9,7 +9,9 @@ class Alphabet extends Component {
         // creating array of letters used in guessing word
         let wordToGuess = this.props.guessWord.toUpperCase();
         let letters;
+        //array of signs
         let signs = this.props.usedLetters.concat(' ') ;
+        //filter only letters from sentence
         letters = [...wordToGuess].filter(item => {
             let newArray;
             if (!signs.includes(item)){
@@ -18,8 +20,9 @@ class Alphabet extends Component {
             }
             return newArray;
         })
+        //dispatching letters to store
         this.props.remain_letters(letters);
-        // number of letters to guess
+        //dispatching number of letters to guess
         this.props.count_letters(letters.length)
     };
     handleClick = e => {
@@ -39,7 +42,7 @@ class Alphabet extends Component {
             this.props.remain_letters(remainLetters);
             this.props.count_letters(remainLetters.length);
         }else{
-            //mistakes
+            //number of mistakes
             this.props.mistake(this.props.numberOfMistakes + 1);
         }
     };

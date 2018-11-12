@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Alphabet from './Alphabet';
 import GuessWord from './GuessWord';
 import MistakesCounter from './MistakesCounter';
-import Hangman from './Hangman';
+import Gallows from './Gallows';
 import '../scss/Home.scss'
 
 class Home extends Component {
@@ -18,7 +18,7 @@ class Home extends Component {
                         <Alphabet/>
                         <MistakesCounter/>
                     </div>
-                    <Hangman/>
+                    <Gallows/>
                 </div>
             </div>
         );
