@@ -1,6 +1,7 @@
 
 const initState = {
-    word: 'HELLO WORLD',
+    word: ' ',
+    author: null,
     lettersToGuess: 0,
     remainLetters: null,
     numberOfMistakes: 0,
@@ -24,6 +25,18 @@ const guessWordReducer = (state= initState, action) =>{
         return{
             ...state,
             numberOfMistakes: action.mistake,
+        }
+    }
+    if(action.type === 'NEW_WORD'){
+        return {
+            ...state,
+            word: action.quote,
+        }
+    }
+    if(action.type === "NEW_AUTHOR"){
+        return {
+            ...state,
+            author: action.author,
         }
     }
     return state

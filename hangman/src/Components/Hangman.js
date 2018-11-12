@@ -6,7 +6,6 @@ class Hangman extends Component {
 
         //displaying image of hangman
         let mistake = this.props.numberOfMistakes;
-        console.log(mistake);
         let hangman = () => {
             if(mistake <= 0){
                 return <div className='hangman-gallows'/>
