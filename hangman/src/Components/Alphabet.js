@@ -45,6 +45,11 @@ class Alphabet extends Component {
             //number of mistakes
             this.props.mistake(this.props.numberOfMistakes + 1);
         }
+
+        //checking if number of mistakes equal 4 - game over
+        if(this.props.numberOfMistakes === 4){
+            this.props.game_over(true);
+        }
     };
 
     render() {
@@ -97,6 +102,9 @@ const mapDispatchToState = dispatch => {
         },
         start_game: (start) => {
             dispatch({type: "START_GAME", start})
+        },
+        game_over: (gameOver) => {
+            dispatch({type: "GAME_OVER", gameOver})
         },
     }
 };
