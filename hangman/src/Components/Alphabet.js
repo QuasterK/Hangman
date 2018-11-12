@@ -5,12 +5,19 @@ import '../scss/Alphabet.scss'
 class Alphabet extends Component {
     handleStart = () =>{
         this.props.start_game(true);
+
         // creating array of letters used in guessing word
         let wordToGuess = this.props.guessWord.toUpperCase();
-
-        let letters = [...wordToGuess].filter(letter => {
-            return letter !== ' '
-        });
+        let letters;
+        let signs = this.props.usedLetters.concat(' ') ;
+        letters = [...wordToGuess].filter(item => {
+            let newArray;
+            if (!signs.includes(item)){
+                newArray = item;
+                return newArray;
+            }
+            return newArray;
+        })
         this.props.remain_letters(letters);
         // number of letters to guess
         this.props.count_letters(letters.length)
