@@ -1,0 +1,17 @@
+.home-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: lightgray;
+  height: 100vh;
+  .logo{
+    font-size: 100px;
+    padding: 30px;
+  }
+  .home-flex{
+    display: flex;
+    .home-app{
+      width: 50%;
+    }
+  }
+
+}

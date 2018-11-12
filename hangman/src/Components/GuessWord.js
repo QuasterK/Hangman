@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import "../scss/GuessWord.scss"
 
 class GuessWord extends Component {
-    constructor(props){
-        super(props)
 
-        this.state = {
-            contacts: ' '
-        }
-    }
     componentDidMount(){
         fetch('https://favqs.com/api/qotd')
             .then(res => res.json())
@@ -26,9 +21,9 @@ class GuessWord extends Component {
            }else return '_ '
         });
         return (
-            <div className='alphabet-container'>
-                {guess}
-                <div>{this.props.author}</div>
+            <div className='guess-container'>
+                <div className='guess-board'>{guess}</div>
+                <div className='guess-author'>{this.props.author}</div>
             </div>
         );
     }

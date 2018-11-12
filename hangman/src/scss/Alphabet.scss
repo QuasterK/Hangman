@@ -1,0 +1,30 @@
+.alphabet-container{
+  padding: 20px;
+  height: 200px;
+}
+.alphabet-startButton{
+  width: 200px;
+  height: 50px;
+  background-color: red;
+  margin: 0 auto;
+  line-height: 50px;
+  text-align: center;
+  font-weight: bolder;
+  cursor: pointer;
+
+}
+.letter-active{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  background-color: red;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  font-weight: bolder;
+  border: 1px solid black;
+}
+.letter-active:hover{
+  background-color: lighten(red, 20%);
+}

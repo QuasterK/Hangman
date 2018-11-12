@@ -1,29 +1,28 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import '../scss/Alphabet.scss'
 
 class Alphabet extends Component {
-    constructor(props) {
-        super(props);
+    handleStart = () =>{
+        this.props.start_game(true);
+        // creating array of letters used in guessing word
+        let wordToGuess = this.props.guessWord.toUpperCase();
 
-        //creating array of letters used in guessing word
-        let wordToGuess = this.props.guessWord;
-        let letters = wordToGuess.filter(letter => {
+        let letters = [...wordToGuess].filter(letter => {
             return letter !== ' '
         });
         this.props.remain_letters(letters);
-        //number of letters to guess
+        // number of letters to guess
         this.props.count_letters(letters.length)
-
-    }
-
+    };
     handleClick = e => {
         //deleting chosen letter from array
         this.props.deactivate_letter(e.target.innerText);
 
-        //use correct letter
+        //use letter
         this.props.use_letter(e.target.innerText);
 
-        //creating array of ungeussed and remained number of letters to guess
+        // creating array of ungeussed and remained number of letters to guess
         let word = this.props.remain;
         let remainLetters;
         if (word.includes(e.target.innerText)) {
@@ -34,7 +33,7 @@ class Alphabet extends Component {
             this.props.count_letters(remainLetters.length);
         }else{
             //mistakes
-            this.props.mistake(this.props.numberOfMistakes + 1)
+            this.props.mistake(this.props.numberOfMistakes + 1);
         }
     };
 
@@ -50,7 +49,7 @@ class Alphabet extends Component {
         //displaying alphabet
         return (
             <div className='alphabet-container'>
-                {letters}
+                {this.props.startGame === true ? <div>{letters}</div> : <div className='alphabet-startButton' onClick={this.handleStart}>START GAME</div>}
             </div>
         );
     }
@@ -59,11 +58,12 @@ class Alphabet extends Component {
 const mapStateToProps = (state) => {
     return {
         alphabet: state.alphabet.letters,
-        guessWord: [...state.guessWord.word],
+        guessWord: state.guessWord.word,
         usedLetters: state.alphabet.usedLetters,
         remain: state.guessWord.remainLetters,
         numberOfLettersToGuess: state.guessWord.lettersToGuess,
         numberOfMistakes: state.guessWord.numberOfMistakes,
+        startGame: state.start.start,
 
     }
 };
@@ -84,6 +84,9 @@ const mapDispatchToState = dispatch => {
         },
         mistake: (mistake) => {
             dispatch({type: "MISTAKE", mistake})
+        },
+        start_game: (start) => {
+            dispatch({type: "START_GAME", start})
         },
     }
 };

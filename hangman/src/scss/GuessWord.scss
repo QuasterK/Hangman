@@ -1,0 +1,19 @@
+.guess-container{
+  margin: 20px;
+  font-size: 30px;
+  .guess-board{
+    margin-bottom: 10px;
+  }
+  .guess-board:before{
+    content: ' " ';
+    font-size: 40px;
+  }
+  .guess-board:after{
+    content: ' " ' ;
+    font-size: 40px;
+  }
+  .guess-author{
+    font-weight: bolder;
+    margin: 30px;
+  }
+}

@@ -55,7 +55,7 @@ const initState = {
             clicked: false},
 
     ],
-    usedLetters: [],
+    usedLetters: ['.',',',':',';','-','_', "'", '"'],
 };
 
 const alphabetReducer = (state= initState, action) =>{
