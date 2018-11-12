@@ -13,18 +13,17 @@ class Home extends Component {
     };
 
     render() {
-        console.log(this.props.quote);
-        console.log(this.props.lettersToGuess)
+
         return (
             <div className='home-container'>
                 <div className='logo'>HA_GMA_</div>
 
                 {this.props.gameOver ?
-                   <div>
-                       <div>{this.props.lettersToGuess === 0 ? "CONGRATULATION" : 'GAME OVER'}</div>
-                       <div>{this.props.quote}</div>
-                       <div>{this.props.author}</div>
-                       <div onClick={this.handleNewGame}>PLAY AGAIN ? </div>
+                   <div className='gameOver-container'>
+                       <div className='gameOver-text'>{this.props.lettersToGuess === 0 ? "CONGRATULATION" : 'GAME OVER'}</div>
+                       <div className='gameOver-quote'>"{this.props.quote}"</div>
+                       <div className='gameOver-author'>~{this.props.author}</div>
+                       <div className='gameOver-button' onClick={this.handleNewGame}>PLAY AGAIN ? </div>
                    </div> :
                     (<div className='home-flex'>
                         <div className='home-app'>

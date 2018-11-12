@@ -55,6 +55,7 @@ class Alphabet extends Component {
         if(this.props.lettersToGuess === 0){
             this.props.game_over(true)
         }
+
     };
 
     render() {
